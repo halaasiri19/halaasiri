@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Colorful Portfolio</title>
+  <style>
+    /* Reset default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+      color: #333;
+      padding: 0 20px;
+      transition: background-color 0.5s ease;
+    }
+
+    header {
+      background-color: #ff6f61;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header nav ul {
+      list-style: none;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin: 0 20px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ffca8c;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #ff6f61;
+      font-size: 2em;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #ffca8c;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+    }
+
+    section {
+      padding: 50px 0;
+    }
+
+    #about p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .project {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      background-color: #ffca8c;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input, form textarea {
+      margin: 10px 0;
+      padding: 15px;
+      border: 2px solid #ff6f61;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      transition: border-color 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: #ffca8c;
+    }
+
+    button {
+      padding: 15px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffca8c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background-color: #ff6f61;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm <strong>Hala </strong>, a passionate <strong>student</strong>. I love <strong>video game</strong> and strive to create beautiful and functional designs.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <h3>Project 1: Colorful World</h3>
+      <p>A fun and vibrant project with lots of colors!</p>
+    </div>
+    <div class="project">
+      <h3>Project 2: Interactive Design</h3>
+      <p>This project focuses on engaging user interactions.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 [Your Name] | Made with 💖</p>
+  </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      alert(`🎉 Thank you, ${name}! Your message has been sent. We'll get back to you shortly.`);
+    });
+
+    // Add dynamic background color changing effect
+    const colors = ['#fbc2eb', '#a6c1ee', '#ff6f61', '#ffca8c', '#fbd786', '#f7797d'];
+    let currentColor = 0;
+    setInterval(() => {
+      document.body.style.background = `linear-gradient(135deg, ${colors[currentColor]} 0%, ${colors[(currentColor + 1) % colors.length]} 100%)`;
+      currentColor = (currentColor + 1) % colors.length;
+    }, 5000);
+  </script>
+</body>
+</html>
